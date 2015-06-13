@@ -43,8 +43,14 @@ group :development, :test do
   gem 'spring'
 end
 
-# twitter bootstrap css & javascript toolkit
-gem 'twitter-bootswatch-rails', '~> 3.3.2'
+group :assets do
+  #gem 'twitter-bootstrap-rails'
+
+  # twitter bootstrap css & javascript toolkit
+  gem 'twitter-bootswatch-rails', '~> 3.3.2'
 
 # twitter bootstrap helpers gem, e.g., alerts etc...
-gem 'twitter-bootswatch-rails-helpers'
+  gem 'twitter-bootswatch-rails-helpers'
+
+  gem 'jquery-datatables-rails', '~> 3.3.0'
+end
