@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :folder_attachments
+  resources :clients
   root 'home#welcome'
 
   get 'home/index'

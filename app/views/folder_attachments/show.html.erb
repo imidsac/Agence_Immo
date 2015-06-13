@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @folder_attachment.client %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @folder_attachment.file_name %>
+</p>
+
+<%= link_to 'Edit', edit_folder_attachment_path(@folder_attachment) %> |
+<%= link_to 'Back', folder_attachments_path %>

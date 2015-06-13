@@ -54,3 +54,5 @@ group :assets do
 
   gem 'jquery-datatables-rails', '~> 3.3.0'
 end
+
+gem 'paperclip', '~> 4.2.0'
