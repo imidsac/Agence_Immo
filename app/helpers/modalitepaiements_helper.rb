@@ -1,0 +1,2 @@
+module ModalitepaiementsHelper
+end

@@ -5,8 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>Owner</th>
       <th>Client</th>
-      <th>File name</th>
+      <th>Name file</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +15,9 @@
   <tbody>
     <% @folder_attachments.each do |folder_attachment| %>
       <tr>
+        <td><%= folder_attachment.owner %></td>
         <td><%= folder_attachment.client %></td>
-        <td><%= folder_attachment.file_name %></td>
+        <td><%= folder_attachment.name_file %></td>
         <td><%= link_to 'Show', folder_attachment %></td>
         <td><%= link_to 'Edit', edit_folder_attachment_path(folder_attachment) %></td>
         <td><%= link_to 'Destroy', folder_attachment, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,8 +1,9 @@
 class CreateFolderAttachments < ActiveRecord::Migration
   def change
     create_table :folder_attachments do |t|
+      t.references :owner, index: true, foreign_key: true
       t.references :client, index: true, foreign_key: true
-      t.string :file_name
+      t.string :name_file
 
       t.timestamps null: false
     end

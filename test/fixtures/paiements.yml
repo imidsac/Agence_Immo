@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  num: MyString
+  num_paie: MyString
+  owner_id: 
+  client_id: 
+  type_paiement: MyString
+  motif: MyString
+  datepaiement: 2015-06-17 10:44:16
+
+two:
+  num: MyString
+  num_paie: MyString
+  owner_id: 
+  client_id: 
+  type_paiement: MyString
+  motif: MyString
+  datepaiement: 2015-06-17 10:44:16

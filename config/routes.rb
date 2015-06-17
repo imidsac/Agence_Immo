@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  resources :paiements
+  resources :modalitepaiements
+  resources :tbanques
+  resources :banques
   resources :folder_attachments
+  resources :owners
   resources :clients
   root 'home#welcome'
 

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom: MyString
+  compte: MyString
+  solde: 9.99
+
+two:
+  nom: MyString
+  compte: MyString
+  solde: 9.99

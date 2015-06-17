@@ -1,1 +1,1 @@
-json.extract! @folder_attachment, :id, :client_id, :file_name, :created_at, :updated_at
+json.extract! @folder_attachment, :id, :owner_id, :client_id, :name_file, :created_at, :updated_at

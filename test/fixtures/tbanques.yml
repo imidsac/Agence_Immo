@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  banque_id: 
+  type: 
+  montant: 9.99
+  porteur: MyString
+
+two:
+  banque_id: 
+  type: 
+  montant: 9.99
+  porteur: MyString

@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :owner_id %><br>
+    <%= f.text_field :owner_id %>
+  </div>
+  <div class="field">
     <%= f.label :client_id %><br>
     <%= f.text_field :client_id %>
   </div>
   <div class="field">
-    <%= f.label :file_name %><br>
-    <%= f.text_field :file_name %>
+    <%= f.label :name_file %><br>
+    <%= f.text_field :name_file %>
   </div>
   <div class="actions">
     <%= f.submit %>

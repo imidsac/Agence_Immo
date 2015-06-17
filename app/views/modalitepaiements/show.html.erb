@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Mode:</strong>
+  <%= @modalitepaiement.mode %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @modalitepaiement.description %>
+</p>
+
+<%= link_to 'Edit', edit_modalitepaiement_path(@modalitepaiement) %> |
+<%= link_to 'Back', modalitepaiements_path %>

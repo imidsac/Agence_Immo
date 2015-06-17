@@ -69,6 +69,6 @@ class FolderAttachmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def folder_attachment_params
-      params.require(:folder_attachment).permit(:client_id, :file_name)
+      params.require(:folder_attachment).permit(:owner_id, :client_id, :name_file)
     end
 end

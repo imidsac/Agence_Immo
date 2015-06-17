@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  owner_id: 
   client_id: 
-  file_name: MyString
+  name_file: MyString
 
 two:
+  owner_id: 
   client_id: 
-  file_name: MyString
+  name_file: MyString

@@ -1,0 +1,33 @@
+<%= form_for(@tbanque) do |f| %>
+  <% if @tbanque.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tbanque.errors.count, "error") %> prohibited this tbanque from being saved:</h2>
+
+      <ul>
+      <% @tbanque.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :banque_id %><br>
+    <%= f.text_field :banque_id %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :montant %><br>
+    <%= f.text_field :montant %>
+  </div>
+  <div class="field">
+    <%= f.label :porteur %><br>
+    <%= f.text_field :porteur %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

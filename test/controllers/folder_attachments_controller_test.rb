@@ -18,7 +18,7 @@ class FolderAttachmentsControllerTest < ActionController::TestCase
 
   test "should create folder_attachment" do
     assert_difference('FolderAttachment.count') do
-      post :create, folder_attachment: { client_id: @folder_attachment.client_id, file_name: @folder_attachment.file_name }
+      post :create, folder_attachment: { client_id: @folder_attachment.client_id, name_file: @folder_attachment.name_file, owner_id: @folder_attachment.owner_id }
     end
 
     assert_redirected_to folder_attachment_path(assigns(:folder_attachment))
@@ -35,7 +35,7 @@ class FolderAttachmentsControllerTest < ActionController::TestCase
   end
 
   test "should update folder_attachment" do
-    patch :update, id: @folder_attachment, folder_attachment: { client_id: @folder_attachment.client_id, file_name: @folder_attachment.file_name }
+    patch :update, id: @folder_attachment, folder_attachment: { client_id: @folder_attachment.client_id, name_file: @folder_attachment.name_file, owner_id: @folder_attachment.owner_id }
     assert_redirected_to folder_attachment_path(assigns(:folder_attachment))
   end
 

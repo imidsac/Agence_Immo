@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Owner:</strong>
+  <%= @folder_attachment.owner %>
+</p>
+
+<p>
   <strong>Client:</strong>
   <%= @folder_attachment.client %>
 </p>
 
 <p>
-  <strong>File name:</strong>
-  <%= @folder_attachment.file_name %>
+  <strong>Name file:</strong>
+  <%= @folder_attachment.name_file %>
 </p>
 
 <%= link_to 'Edit', edit_folder_attachment_path(@folder_attachment) %> |

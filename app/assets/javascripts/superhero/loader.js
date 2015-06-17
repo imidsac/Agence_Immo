@@ -14,3 +14,7 @@
 //= require twitter/bootstrap/scrollspy
 //= require twitter/bootstrap/tab
 //= require twitter/bootstrap/affix
+
+//= require dataTables/extras/dataTables.responsive
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
