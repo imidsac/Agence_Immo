@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statistic Generals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Expense</th>
+      <th>Recipe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statistic_generals.each do |statistic_general| %>
+      <tr>
+        <td><%= statistic_general.year %></td>
+        <td><%= statistic_general.month %></td>
+        <td><%= statistic_general.expense %></td>
+        <td><%= statistic_general.recipe %></td>
+        <td><%= link_to 'Show', statistic_general %></td>
+        <td><%= link_to 'Edit', edit_statistic_general_path(statistic_general) %></td>
+        <td><%= link_to 'Destroy', statistic_general, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Statistic general', new_statistic_general_path %>

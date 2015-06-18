@@ -1,0 +1,33 @@
+<%= form_for(@statistic_general) do |f| %>
+  <% if @statistic_general.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@statistic_general.errors.count, "error") %> prohibited this statistic_general from being saved:</h2>
+
+      <ul>
+      <% @statistic_general.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :month %><br>
+    <%= f.number_field :month %>
+  </div>
+  <div class="field">
+    <%= f.label :expense %><br>
+    <%= f.text_field :expense %>
+  </div>
+  <div class="field">
+    <%= f.label :recipe %><br>
+    <%= f.text_field :recipe %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

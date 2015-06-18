@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Occupations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Chamber</th>
+      <th>Date occupation</th>
+      <th>Etat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @occupations.each do |occupation| %>
+      <tr>
+        <td><%= occupation.client %></td>
+        <td><%= occupation.chamber %></td>
+        <td><%= occupation.date_occupation %></td>
+        <td><%= occupation.etat %></td>
+        <td><%= link_to 'Show', occupation %></td>
+        <td><%= link_to 'Edit', edit_occupation_path(occupation) %></td>
+        <td><%= link_to 'Destroy', occupation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Occupation', new_occupation_path %>

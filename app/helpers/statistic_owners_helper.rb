@@ -1,0 +1,2 @@
+module StatisticOwnersHelper
+end

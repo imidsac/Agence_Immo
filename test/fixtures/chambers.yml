@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  building_id: 
+  name: MyString
+  type_chamber: MyString
+
+two:
+  building_id: 
+  name: MyString
+  type_chamber: MyString

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  resources :staffs
+  resources :statistic_generals
+  resources :statistic_owners
+  resources :delais
+  resources :occupations
+  resources :chambers
+  resources :buildings
+  resources :depenses
+  resources :categoriedeps
   resources :paiements
   resources :modalitepaiements
   resources :tbanques

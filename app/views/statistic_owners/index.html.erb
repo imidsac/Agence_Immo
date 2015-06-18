@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Statistic Owners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Month</th>
+      <th>Provide</th>
+      <th>Pay</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statistic_owners.each do |statistic_owner| %>
+      <tr>
+        <td><%= statistic_owner.year %></td>
+        <td><%= statistic_owner.month %></td>
+        <td><%= statistic_owner.provide %></td>
+        <td><%= statistic_owner.pay %></td>
+        <td><%= link_to 'Show', statistic_owner %></td>
+        <td><%= link_to 'Edit', edit_statistic_owner_path(statistic_owner) %></td>
+        <td><%= link_to 'Destroy', statistic_owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Statistic owner', new_statistic_owner_path %>

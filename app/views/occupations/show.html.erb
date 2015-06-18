@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Client:</strong>
+  <%= @occupation.client %>
+</p>
+
+<p>
+  <strong>Chamber:</strong>
+  <%= @occupation.chamber %>
+</p>
+
+<p>
+  <strong>Date occupation:</strong>
+  <%= @occupation.date_occupation %>
+</p>
+
+<p>
+  <strong>Etat:</strong>
+  <%= @occupation.etat %>
+</p>
+
+<%= link_to 'Edit', edit_occupation_path(@occupation) %> |
+<%= link_to 'Back', occupations_path %>

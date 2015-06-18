@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @delai.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @delai.description %>
+</p>
+
+<p>
+  <strong>Nb day:</strong>
+  <%= @delai.nb_day %>
+</p>
+
+<%= link_to 'Edit', edit_delai_path(@delai) %> |
+<%= link_to 'Back', delais_path %>

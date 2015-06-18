@@ -1,0 +1,33 @@
+<%= form_for(@depense) do |f| %>
+  <% if @depense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@depense.errors.count, "error") %> prohibited this depense from being saved:</h2>
+
+      <ul>
+      <% @depense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :categoriedep_id %><br>
+    <%= f.text_field :categoriedep_id %>
+  </div>
+  <div class="field">
+    <%= f.label :montant %><br>
+    <%= f.text_field :montant %>
+  </div>
+  <div class="field">
+    <%= f.label :etat %><br>
+    <%= f.text_field :etat %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -11,6 +11,34 @@ namespace :dev_data do
     Rake::Task['db:migrate'].invoke
     puts "===> db migrate!"
 
+    Categoriedep.create!(
+        id: -1,
+        name: "AUTRE"
+    )
+    Categoriedep.create!(
+        name: "AVANT SALAIRE"
+    )
+    Categoriedep.create!(
+        name: "E.D.M"
+    )
+    Categoriedep.create!(
+        name: "LOYER"
+    )
+    Categoriedep.create!(
+        name: "TRANSPORT"
+    )
+    Categoriedep.create!(
+        name: "CARBURANT"
+    )
+    Categoriedep.create!(
+        name: "CARTE DE RECHARGE"
+    )
+    Categoriedep.create!(
+        name: "REPARATION DE AUTO/MOTO"
+    )
+
+    puts "===> Sample date have been set in DB  Categories depenses!"
+
     Modalitepaiement.create!(
         code: "001",
         mode: "Chaque mois",

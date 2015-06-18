@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @statistic_general.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @statistic_general.month %>
+</p>
+
+<p>
+  <strong>Expense:</strong>
+  <%= @statistic_general.expense %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @statistic_general.recipe %>
+</p>
+
+<%= link_to 'Edit', edit_statistic_general_path(@statistic_general) %> |
+<%= link_to 'Back', statistic_generals_path %>

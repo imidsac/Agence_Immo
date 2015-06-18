@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Depenses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Categoriedep</th>
+      <th>Montant</th>
+      <th>Etat</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @depenses.each do |depense| %>
+      <tr>
+        <td><%= depense.description %></td>
+        <td><%= depense.categoriedep %></td>
+        <td><%= depense.montant %></td>
+        <td><%= depense.etat %></td>
+        <td><%= link_to 'Show', depense %></td>
+        <td><%= link_to 'Edit', edit_depense_path(depense) %></td>
+        <td><%= link_to 'Destroy', depense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Depense', new_depense_path %>

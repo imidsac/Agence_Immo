@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @chamber.building %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @chamber.name %>
+</p>
+
+<p>
+  <strong>Type chamber:</strong>
+  <%= @chamber.type_chamber %>
+</p>
+
+<%= link_to 'Edit', edit_chamber_path(@chamber) %> |
+<%= link_to 'Back', chambers_path %>

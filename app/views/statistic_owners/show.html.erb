@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @statistic_owner.year %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @statistic_owner.month %>
+</p>
+
+<p>
+  <strong>Provide:</strong>
+  <%= @statistic_owner.provide %>
+</p>
+
+<p>
+  <strong>Pay:</strong>
+  <%= @statistic_owner.pay %>
+</p>
+
+<%= link_to 'Edit', edit_statistic_owner_path(@statistic_owner) %> |
+<%= link_to 'Back', statistic_owners_path %>

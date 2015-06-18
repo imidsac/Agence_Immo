@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Delais</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Nb day</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @delais.each do |delai| %>
+      <tr>
+        <td><%= delai.name %></td>
+        <td><%= delai.description %></td>
+        <td><%= delai.nb_day %></td>
+        <td><%= link_to 'Show', delai %></td>
+        <td><%= link_to 'Edit', edit_delai_path(delai) %></td>
+        <td><%= link_to 'Destroy', delai, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Delai', new_delai_path %>
