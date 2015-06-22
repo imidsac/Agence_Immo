@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618073902) do
+ActiveRecord::Schema.define(version: 20150620144945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,22 @@ ActiveRecord::Schema.define(version: 20150618073902) do
   create_table "buildings", force: :cascade do |t|
     t.integer  "owner_id"
     t.string   "name"
-    t.string   "street"
+    t.string   "type_build"
+    t.string   "niveau"
     t.string   "door"
+    t.string   "street"
     t.string   "quartier"
     t.string   "ville"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "unique",              default: false
+    t.decimal  "previen",             default: 0.0
+    t.decimal  "pordinaire",          default: 0.0
+    t.decimal  "pong",                default: 0.0
+    t.decimal  "pgov",                default: 0.0
+    t.decimal  "pourcent_pordinaire", default: 0.0
+    t.decimal  "pourcent_pong",       default: 0.0
+    t.decimal  "pourcent_pgov",       default: 0.0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   add_index "buildings", ["owner_id"], name: "index_buildings_on_owner_id", using: :btree
@@ -47,9 +57,17 @@ ActiveRecord::Schema.define(version: 20150618073902) do
   create_table "chambers", force: :cascade do |t|
     t.integer  "building_id"
     t.string   "name"
-    t.string   "type_chamber"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "type_chamber",        default: "Appartement"
+    t.string   "niveau"
+    t.decimal  "previen",             default: 0.0
+    t.decimal  "pordinaire",          default: 0.0
+    t.decimal  "pong",                default: 0.0
+    t.decimal  "pgov",                default: 0.0
+    t.decimal  "pourcent_pordinaire", default: 0.0
+    t.decimal  "pourcent_pong",       default: 0.0
+    t.decimal  "pourcent_pgov",       default: 0.0
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "chambers", ["building_id"], name: "index_chambers_on_building_id", using: :btree
@@ -104,15 +122,19 @@ ActiveRecord::Schema.define(version: 20150618073902) do
   create_table "folder_attachments", force: :cascade do |t|
     t.integer  "owner_id"
     t.integer  "client_id"
-    t.integer  "chamber_id"
     t.string   "name_file"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "staff_id"
+    t.integer  "building_id"
+    t.integer  "chamber_id"
   end
 
+  add_index "folder_attachments", ["building_id"], name: "index_folder_attachments_on_building_id", using: :btree
   add_index "folder_attachments", ["chamber_id"], name: "index_folder_attachments_on_chamber_id", using: :btree
   add_index "folder_attachments", ["client_id"], name: "index_folder_attachments_on_client_id", using: :btree
   add_index "folder_attachments", ["owner_id"], name: "index_folder_attachments_on_owner_id", using: :btree
+  add_index "folder_attachments", ["staff_id"], name: "index_folder_attachments_on_staff_id", using: :btree
 
   create_table "modalitepaiements", force: :cascade do |t|
     t.string   "code"
@@ -126,8 +148,8 @@ ActiveRecord::Schema.define(version: 20150618073902) do
   create_table "occupations", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "chamber_id"
-    t.date     "date_occupation"
     t.string   "etat"
+    t.date     "date_occupation"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -232,8 +254,11 @@ ActiveRecord::Schema.define(version: 20150618073902) do
   add_foreign_key "buildings", "owners"
   add_foreign_key "chambers", "buildings"
   add_foreign_key "depenses", "categoriedeps"
+  add_foreign_key "folder_attachments", "buildings"
+  add_foreign_key "folder_attachments", "chambers"
   add_foreign_key "folder_attachments", "clients"
   add_foreign_key "folder_attachments", "owners"
+  add_foreign_key "folder_attachments", "staffs"
   add_foreign_key "occupations", "chambers"
   add_foreign_key "occupations", "clients"
   add_foreign_key "paiements", "banques"

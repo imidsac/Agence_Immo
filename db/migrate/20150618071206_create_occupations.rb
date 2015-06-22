@@ -3,8 +3,8 @@ class CreateOccupations < ActiveRecord::Migration
     create_table :occupations do |t|
       t.references :client, index: true, foreign_key: true
       t.references :chamber, index: true, foreign_key: true
-      t.date :date_occupation
       t.string :etat
+      t.date :date_occupation
 
       t.timestamps null: false
     end

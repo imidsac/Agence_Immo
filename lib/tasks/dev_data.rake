@@ -11,6 +11,24 @@ namespace :dev_data do
     Rake::Task['db:migrate'].invoke
     puts "===> db migrate!"
 
+    Delai.create!(
+        name: "Max delai retart de paiement",
+        description: "quelque informations.",
+        nb_day: 60
+    )
+    Delai.create!(
+        name: "Delai de grace pour retart de paiement",
+        description: "quelque informations.",
+        nb_day: 75
+    )
+    Delai.create!(
+        name: "Max delai poursuit judicieure",
+        description: "quelque informations.",
+        nb_day: 90
+    )
+
+    puts "===> Sample date have been set in DB  Delais!"
+
     Categoriedep.create!(
         id: -1,
         name: "AUTRE"

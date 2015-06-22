@@ -1,20 +1,43 @@
 Rails.application.routes.draw do
-  resources :staffs
+
+  concern :folders do
+    resources :folder_attachments
+  end
+
+  resources :owners do
+    concerns :folders
+  end
+
+  resources :staffs do
+    concerns :folders
+  end
+
+  resources :clients do
+    concerns :folders
+  end
+
+  resources :buildings do
+    concerns :folders
+  end
+
+  resources :chambers do
+    concerns :folders
+  end
+
+
   resources :statistic_generals
   resources :statistic_owners
   resources :delais
   resources :occupations
-  resources :chambers
-  resources :buildings
+
   resources :depenses
   resources :categoriedeps
   resources :paiements
   resources :modalitepaiements
+
   resources :tbanques
   resources :banques
-  resources :folder_attachments
-  resources :owners
-  resources :clients
+
   root 'home#welcome'
 
   get 'home/index'
