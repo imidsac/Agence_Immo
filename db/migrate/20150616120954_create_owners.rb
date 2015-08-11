@@ -5,7 +5,7 @@ class CreateOwners < ActiveRecord::Migration
       t.string :codeowner
       t.string :nom
       t.string :prenom
-      t.string :sexe
+      t.string :sexe, default: 'M'
       t.date :date_nai
       t.string :lieu_nai
       t.string :nationalite

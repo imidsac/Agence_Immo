@@ -12,6 +12,8 @@ class CreateChambers < ActiveRecord::Migration
       t.decimal :pourcent_pordinaire, default: 0
       t.decimal :pourcent_pong, default: 0
       t.decimal :pourcent_pgov, default: 0
+      t.decimal :prix, default: 0
+      t.string :etat
 
       t.timestamps null: false
     end

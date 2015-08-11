@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150620144945) do
     t.decimal  "pourcent_pordinaire", default: 0.0
     t.decimal  "pourcent_pong",       default: 0.0
     t.decimal  "pourcent_pgov",       default: 0.0
+    t.decimal "prix", default: 0.0
+    t.string "etat"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -66,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150620144945) do
     t.decimal  "pourcent_pordinaire", default: 0.0
     t.decimal  "pourcent_pong",       default: 0.0
     t.decimal  "pourcent_pgov",       default: 0.0
+    t.decimal "prix", default: 0.0
+    t.string "etat"
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
   end
@@ -77,8 +81,8 @@ ActiveRecord::Schema.define(version: 20150620144945) do
     t.string   "codeclient"
     t.string   "nom"
     t.string   "prenom"
-    t.string   "sexe"
-    t.date     "data_nai"
+    t.string "sexe", default: "M"
+    t.date "date_nai"
     t.string   "lieu_nai"
     t.string   "nationalite"
     t.string   "profession"
@@ -89,9 +93,9 @@ ActiveRecord::Schema.define(version: 20150620144945) do
     t.decimal  "solde",                          default: 0.0
     t.decimal  "points",                         default: 0.0
     t.string   "etat",                limit: 10, default: "a"
-    t.date     "date_ins"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.date "date_ins", default: '2015-08-11'
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -147,22 +151,26 @@ ActiveRecord::Schema.define(version: 20150620144945) do
 
   create_table "occupations", force: :cascade do |t|
     t.integer  "client_id"
+    t.integer "building_id"
     t.integer  "chamber_id"
+    t.integer "modalitepaiement_id"
     t.string   "etat"
     t.date     "date_occupation"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  add_index "occupations", ["building_id"], name: "index_occupations_on_building_id", using: :btree
   add_index "occupations", ["chamber_id"], name: "index_occupations_on_chamber_id", using: :btree
   add_index "occupations", ["client_id"], name: "index_occupations_on_client_id", using: :btree
+  add_index "occupations", ["modalitepaiement_id"], name: "index_occupations_on_modalitepaiement_id", using: :btree
 
   create_table "owners", force: :cascade do |t|
     t.string   "num"
     t.string   "codeowner"
     t.string   "nom"
     t.string   "prenom"
-    t.string   "sexe"
+    t.string "sexe", default: "M"
     t.date     "date_nai"
     t.string   "lieu_nai"
     t.string   "nationalite"
@@ -259,8 +267,10 @@ ActiveRecord::Schema.define(version: 20150620144945) do
   add_foreign_key "folder_attachments", "clients"
   add_foreign_key "folder_attachments", "owners"
   add_foreign_key "folder_attachments", "staffs"
+  add_foreign_key "occupations", "buildings"
   add_foreign_key "occupations", "chambers"
   add_foreign_key "occupations", "clients"
+  add_foreign_key "occupations", "modalitepaiements"
   add_foreign_key "paiements", "banques"
   add_foreign_key "paiements", "clients"
   add_foreign_key "paiements", "owners"

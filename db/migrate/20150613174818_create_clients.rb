@@ -5,8 +5,8 @@ class CreateClients < ActiveRecord::Migration
       t.string :codeclient
       t.string :nom
       t.string :prenom
-      t.string :sexe
-      t.date :data_nai
+      t.string :sexe, default: 'M'
+      t.date :date_nai
       t.string :lieu_nai
       t.string :nationalite
       t.string :profession
@@ -17,7 +17,7 @@ class CreateClients < ActiveRecord::Migration
       t.decimal :solde, default: 0 # L'argent de client pour ces commandes
       t.decimal :points, default: 0 # Point de fidélité
       t.string :etat, limit: 10, default: 'a' #actif
-      t.date :date_ins
+      t.date :date_ins, :default => Time.now
 
       t.timestamps null: false
     end
