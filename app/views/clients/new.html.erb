@@ -1,6 +1,18 @@
+<% provide(:title, "New client") %>
 <%- model_class = Client -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
-                                 :default => "New #{model_class.model_name.human}") %></h1>
-</div>
-<%= render :partial => 'form' %>
+<div class="container">
+  <div class="row content">
+    <div class="col-xs-9">
+      <div class="page-header">
+        <h1><%= t '.title', :default => t('helpers.titles.new', :model => model_class.model_name.human,
+                                          :default => "New #{model_class.model_name.human}") %></h1>
+      </div>
+
+      <%= render :partial => 'form' %>
+    </div>
+
+    <div class="col-xs-3">
+
+    </div>
+  </div>
+</div> <!-- container content -->

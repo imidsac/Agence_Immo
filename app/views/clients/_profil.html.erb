@@ -1,0 +1,55 @@
+<div class="panel-body">
+  <div class="col-xs-2 text-center">
+    <% if @client.avatar.exists? %>
+        <%= image_tag @client.avatar.url(:medium), :class => "img-responsive img-thumbnail  mini" %>
+    <% else %>
+        <%= 'Image' %>
+    <% end %>
+  </div>
+  <div class="col-xs-4">
+    <address>
+      <h3><%= @client.nom+' '+@client.prenom %></h3>
+      <abbr title="Sexe">Sexe:</abbr> <%= @client.sexe %><br/>
+      <abbr title="Date naissance">Date:</abbr> <%= @client.date_nai %><br/>
+      <abbr title="Lieu naissance">Lieu:</abbr> <%= @client.lieu_nai %><br/>
+      <abbr title="Profession">Pro:</abbr> <%= @client.profession %><br/>
+      <abbr title="phone">P:</abbr> <%= @client.phone %><br/>
+      <abbr title="email">@:</abbr> <%= @client.email %><br/>
+      <abbr title="address">Add:</abbr> <%= @client.address %><br/>
+    </address>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-warning text-center">
+      <div class="panel-heading">
+        Informations sur son tuteur
+      </div>
+      <h4><%= @client.nom %></h4>
+      <%= @client.phone %>
+
+    </div>
+  </div>
+
+  <div class="col-xs-2">
+    <!--<div class="panel panel-info">-->
+    <!--<div class="panel-heading">-->
+    <!--Derniers-->
+    <!--</div>-->
+    <!--<ul class="nav nav-stacked">-->
+    <!--<li><a href="">Mon titre 1</a></li>-->
+    <!--<li><a href="">Mon titre 2</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+  </div>
+</div>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              clients_path, :class => 'btn btn-default' %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_client_path(@client), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              client_path(@client),
+              :method => 'delete',
+              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+              :class => 'btn btn-danger' %>
+</div>
