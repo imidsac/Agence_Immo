@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620144945) do
+ActiveRecord::Schema.define(version: 20150818110013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20150620144945) do
     t.decimal  "solde",                          default: 0.0
     t.decimal  "points",                         default: 0.0
     t.string   "etat",                limit: 10, default: "a"
-    t.date "date_ins", default: '2015-08-11'
+    t.date "date_ins", default: '2015-08-18'
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "avatar_file_name"
@@ -103,6 +103,16 @@ ActiveRecord::Schema.define(version: 20150620144945) do
   end
 
   add_index "clients", ["codeclient"], name: "index_clients_on_codeclient", unique: true, using: :btree
+
+  create_table "contrats", force: :cascade do |t|
+    t.string "article"
+    t.text "description"
+    t.string "type_contrat", limit: 10, default: "C"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "contrats", ["article", "type_contrat"], name: "index_contrats_on_article_and_type_contrat", unique: true, using: :btree
 
   create_table "delais", force: :cascade do |t|
     t.string   "name"

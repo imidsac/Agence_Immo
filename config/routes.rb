@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contrats
   concern :folders do
     resources :folder_attachments
   end
