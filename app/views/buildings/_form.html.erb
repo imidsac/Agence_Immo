@@ -1,41 +1,80 @@
-<%= form_for(@building) do |f| %>
-  <% if @building.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@building.errors.count, "error") %> prohibited this building from being saved:</h2>
-
-      <ul>
-      <% @building.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @building, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :owner_id, :class => 'control-label' %>
+      <%= f.number_field :owner_id, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :type_build, :class => 'control-label' %>
+      <%= f.text_field :type_build, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :niveau, :class => 'control-label' %>
+      <%= f.text_field :niveau, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :door, :class => 'control-label' %>
+      <%= f.text_field :door, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :street, :class => 'control-label' %>
+      <%= f.text_field :street, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :quartier, :class => 'control-label' %>
+      <%= f.text_field :quartier, :class => 'form-control' %>
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :ville, :class => 'control-label' %>
+      <%= f.text_field :ville, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :unique, :class => 'control-label' %>
+      <%= f.check_box :unique, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :previen, :class => 'control-label' %>
+      <%= f.text_field :previen, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pordinaire, :class => 'control-label' %>
+      <%= f.text_field :pordinaire, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pong, :class => 'control-label' %>
+      <%= f.text_field :pong, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pgov, :class => 'control-label' %>
+      <%= f.text_field :pgov, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pourcent_pordinaire, :class => 'control-label' %>
+      <%= f.text_field :pourcent_pordinaire, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pourcent_pong, :class => 'control-label' %>
+      <%= f.text_field :pourcent_pong, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pourcent_pgov, :class => 'control-label' %>
+      <%= f.text_field :pourcent_pgov, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :prix, :class => 'control-label' %>
+      <%= f.text_field :prix, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :etat, :class => 'control-label' %>
+      <%= f.text_field :etat, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.text_field :owner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :street %><br>
-    <%= f.text_field :street %>
-  </div>
-  <div class="field">
-    <%= f.label :door %><br>
-    <%= f.text_field :door %>
-  </div>
-  <div class="field">
-    <%= f.label :quartier %><br>
-    <%= f.text_field :quartier %>
-  </div>
-  <div class="field">
-    <%= f.label :ville %><br>
-    <%= f.text_field :ville %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  buildings_path, :class => 'btn' %>
   </div>
 <% end %>

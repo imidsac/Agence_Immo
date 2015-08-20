@@ -1,45 +1,52 @@
-<%= form_for(@paiement) do |f| %>
-  <% if @paiement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@paiement.errors.count, "error") %> prohibited this paiement from being saved:</h2>
-
-      <ul>
-      <% @paiement.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @paiement, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :num, :class => 'control-label' %>
+      <%= f.text_field :num, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :num_paie, :class => 'control-label' %>
+      <%= f.text_field :num_paie, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :owner_id, :class => 'control-label' %>
+      <%= f.number_field :owner_id, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :client_id, :class => 'control-label' %>
+      <%= f.number_field :client_id, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :banque_id, :class => 'control-label' %>
+      <%= f.number_field :banque_id, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :condition_reg, :class => 'control-label' %>
+      <%= f.text_field :condition_reg, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :type_paiement, :class => 'control-label' %>
+      <%= f.text_field :type_paiement, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :motif, :class => 'control-label' %>
+      <%= f.text_field :motif, :class => 'form-control' %>
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :debit, :class => 'control-label' %>
+      <%= f.text_field :debit, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :credit, :class => 'control-label' %>
+      <%= f.text_field :credit, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :datepaiement, :class => 'control-label' %>
+      <%= f.datetime_select :datepaiement, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :num %><br>
-    <%= f.text_field :num %>
-  </div>
-  <div class="field">
-    <%= f.label :num_paie %><br>
-    <%= f.text_field :num_paie %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.text_field :owner_id %>
-  </div>
-  <div class="field">
-    <%= f.label :client_id %><br>
-    <%= f.text_field :client_id %>
-  </div>
-  <div class="field">
-    <%= f.label :type_paiement %><br>
-    <%= f.text_field :type_paiement %>
-  </div>
-  <div class="field">
-    <%= f.label :motif %><br>
-    <%= f.text_field :motif %>
-  </div>
-  <div class="field">
-    <%= f.label :datepaiement %><br>
-    <%= f.datetime_select :datepaiement %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  paiements_path, :class => 'btn' %>
   </div>
 <% end %>

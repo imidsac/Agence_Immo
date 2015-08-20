@@ -1,19 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Chamber -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong>Building:</strong>
-  <%= @chamber.building %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:building_id) %>:</strong></dt>
+  <dd><%= @chamber.building_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @chamber.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:type_chamber) %>:</strong></dt>
+  <dd><%= @chamber.type_chamber %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:niveau) %>:</strong></dt>
+  <dd><%= @chamber.niveau %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:previen) %>:</strong></dt>
+  <dd><%= @chamber.previen %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pordinaire) %>:</strong></dt>
+  <dd><%= @chamber.pordinaire %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pong) %>:</strong></dt>
+  <dd><%= @chamber.pong %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pgov) %>:</strong></dt>
+  <dd><%= @chamber.pgov %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pourcent_pordinaire) %>:</strong></dt>
+  <dd><%= @chamber.pourcent_pordinaire %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pourcent_pong) %>:</strong></dt>
+  <dd><%= @chamber.pourcent_pong %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pourcent_pgov) %>:</strong></dt>
+  <dd><%= @chamber.pourcent_pgov %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:prix) %>:</strong></dt>
+  <dd><%= @chamber.prix %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:etat) %>:</strong></dt>
+  <dd><%= @chamber.etat %></dd>
+</dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @chamber.name %>
-</p>
-
-<p>
-  <strong>Type chamber:</strong>
-  <%= @chamber.type_chamber %>
-</p>
-
-<%= link_to 'Edit', edit_chamber_path(@chamber) %> |
-<%= link_to 'Back', chambers_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              chambers_path, :class => 'btn' %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_chamber_path(@chamber), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              chamber_path(@chamber),
+              :method => 'delete',
+              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+              :class => 'btn btn-danger' %>
+</div>

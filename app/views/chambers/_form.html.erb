@@ -1,29 +1,60 @@
-<%= form_for(@chamber) do |f| %>
-  <% if @chamber.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@chamber.errors.count, "error") %> prohibited this chamber from being saved:</h2>
-
-      <ul>
-      <% @chamber.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for @chamber, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :building_id, :class => 'control-label' %>
+      <%= f.number_field :building_id, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <%= f.text_field :name, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :type_chamber, :class => 'control-label' %>
+      <%= f.text_field :type_chamber, :class => 'form-control' %>
+  </div>
+    <div class="form-group">
+      <%= f.label :niveau, :class => 'control-label' %>
+      <%= f.text_field :niveau, :class => 'form-control' %>
     </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :previen, :class => 'control-label' %>
+      <%= f.text_field :previen, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pordinaire, :class => 'control-label' %>
+      <%= f.text_field :pordinaire, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pong, :class => 'control-label' %>
+      <%= f.text_field :pong, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pgov, :class => 'control-label' %>
+      <%= f.text_field :pgov, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pourcent_pordinaire, :class => 'control-label' %>
+      <%= f.text_field :pourcent_pordinaire, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pourcent_pong, :class => 'control-label' %>
+      <%= f.text_field :pourcent_pong, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :pourcent_pgov, :class => 'control-label' %>
+      <%= f.text_field :pourcent_pgov, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :prix, :class => 'control-label' %>
+      <%= f.text_field :prix, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :etat, :class => 'control-label' %>
+      <%= f.text_field :etat, :class => 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :building_id %><br>
-    <%= f.text_field :building_id %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :type_chamber %><br>
-    <%= f.text_field :type_chamber %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  chambers_path, :class => 'btn' %>
   </div>
 <% end %>

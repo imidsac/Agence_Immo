@@ -1,29 +1,20 @@
-<%= form_for(@contrat) do |f| %>
-    <% if @contrat.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@contrat.errors.count, "error") %> prohibited this contrat from being saved:</h2>
+<%= form_for @contrat, :html => {:class => 'form-horizontal'} do |f| %>
+    <div class="form-group">
+      <%= f.label :article, :class => 'control-label' %>
+      <%= f.text_field :article, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description, :class => 'control-label' %>
+      <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :type_contrat, :class => 'control-label' %>
+      <%= f.text_field :type_contrat, :class => 'form-control' %>
+    </div>
 
-          <ul>
-            <% @contrat.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :article %><br>
-      <%= f.text_field :article %>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_area :description %>
-    </div>
-    <div class="field">
-      <%= f.label :type_contrat %><br>
-      <%= f.text_field :type_contrat %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  contrats_path, :class => 'btn' %>
     </div>
 <% end %>

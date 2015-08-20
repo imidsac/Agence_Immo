@@ -1,34 +1,55 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Building -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong>Owner:</strong>
-  <%= @building.owner %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:owner_id) %>:</strong></dt>
+  <dd><%= @building.owner_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @building.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:type_build) %>:</strong></dt>
+  <dd><%= @building.type_build %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:niveau) %>:</strong></dt>
+  <dd><%= @building.niveau %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:door) %>:</strong></dt>
+  <dd><%= @building.door %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:street) %>:</strong></dt>
+  <dd><%= @building.street %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:quartier) %>:</strong></dt>
+  <dd><%= @building.quartier %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:ville) %>:</strong></dt>
+  <dd><%= @building.ville %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unique) %>:</strong></dt>
+  <dd><%= @building.unique %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:previen) %>:</strong></dt>
+  <dd><%= @building.previen %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pordinaire) %>:</strong></dt>
+  <dd><%= @building.pordinaire %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pong) %>:</strong></dt>
+  <dd><%= @building.pong %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pgov) %>:</strong></dt>
+  <dd><%= @building.pgov %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pourcent_pordinaire) %>:</strong></dt>
+  <dd><%= @building.pourcent_pordinaire %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pourcent_pong) %>:</strong></dt>
+  <dd><%= @building.pourcent_pong %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pourcent_pgov) %>:</strong></dt>
+  <dd><%= @building.pourcent_pgov %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:prix) %>:</strong></dt>
+  <dd><%= @building.prix %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:etat) %>:</strong></dt>
+  <dd><%= @building.etat %></dd>
+</dl>
 
-<p>
-  <strong>Name:</strong>
-  <%= @building.name %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @building.street %>
-</p>
-
-<p>
-  <strong>Door:</strong>
-  <%= @building.door %>
-</p>
-
-<p>
-  <strong>Quartier:</strong>
-  <%= @building.quartier %>
-</p>
-
-<p>
-  <strong>Ville:</strong>
-  <%= @building.ville %>
-</p>
-
-<%= link_to 'Edit', edit_building_path(@building) %> |
-<%= link_to 'Back', buildings_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              buildings_path, :class => 'btn' %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_building_path(@building), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              building_path(@building),
+              :method => 'delete',
+              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+              :class => 'btn btn-danger' %>
+</div>

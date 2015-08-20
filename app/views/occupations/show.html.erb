@@ -1,24 +1,31 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Occupation -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <strong>Client:</strong>
-  <%= @occupation.client %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:client_id) %>:</strong></dt>
+  <dd><%= @occupation.client_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:building_id) %>:</strong></dt>
+  <dd><%= @occupation.building_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:chamber_id) %>:</strong></dt>
+  <dd><%= @occupation.chamber_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:modalitepaiement_id) %>:</strong></dt>
+  <dd><%= @occupation.modalitepaiement_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:etat) %>:</strong></dt>
+  <dd><%= @occupation.etat %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:date_occupation) %>:</strong></dt>
+  <dd><%= @occupation.date_occupation %></dd>
+</dl>
 
-<p>
-  <strong>Chamber:</strong>
-  <%= @occupation.chamber %>
-</p>
-
-<p>
-  <strong>Date occupation:</strong>
-  <%= @occupation.date_occupation %>
-</p>
-
-<p>
-  <strong>Etat:</strong>
-  <%= @occupation.etat %>
-</p>
-
-<%= link_to 'Edit', edit_occupation_path(@occupation) %> |
-<%= link_to 'Back', occupations_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              occupations_path, :class => 'btn' %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_occupation_path(@occupation), :class => 'btn btn-primary' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              occupation_path(@occupation),
+              :method => 'delete',
+              :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+              :class => 'btn btn-danger' %>
+</div>

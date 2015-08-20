@@ -1,31 +1,60 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Chambers</h1>
-
-<table>
+<%- model_class = Chamber -%>
+<div class="page-header">
+  <h1><%= t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Building</th>
-      <th>Name</th>
-      <th>Type chamber</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:building_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:type_chamber) %></th>
+      <th><%= model_class.human_attribute_name(:niveau) %></th>
+      <th><%= model_class.human_attribute_name(:previen) %></th>
+      <th><%= model_class.human_attribute_name(:pordinaire) %></th>
+      <th><%= model_class.human_attribute_name(:pong) %></th>
+      <th><%= model_class.human_attribute_name(:pgov) %></th>
+      <th><%= model_class.human_attribute_name(:pourcent_pordinaire) %></th>
+      <th><%= model_class.human_attribute_name(:pourcent_pong) %></th>
+      <th><%= model_class.human_attribute_name(:pourcent_pgov) %></th>
+      <th><%= model_class.human_attribute_name(:prix) %></th>
+      <th><%= model_class.human_attribute_name(:etat) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @chambers.each do |chamber| %>
       <tr>
-        <td><%= chamber.building %></td>
+        <td><%= link_to chamber.id, chamber_path(chamber) %></td>
+        <td><%= chamber.building_id %></td>
         <td><%= chamber.name %></td>
         <td><%= chamber.type_chamber %></td>
-        <td><%= link_to 'Show', chamber %></td>
-        <td><%= link_to 'Edit', edit_chamber_path(chamber) %></td>
-        <td><%= link_to 'Destroy', chamber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= chamber.niveau %></td>
+        <td><%= chamber.previen %></td>
+        <td><%= chamber.pordinaire %></td>
+        <td><%= chamber.pong %></td>
+        <td><%= chamber.pgov %></td>
+        <td><%= chamber.pourcent_pordinaire %></td>
+        <td><%= chamber.pourcent_pong %></td>
+        <td><%= chamber.pourcent_pgov %></td>
+        <td><%= chamber.prix %></td>
+        <td><%= chamber.etat %></td>
+        <td><%= l chamber.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_chamber_path(chamber), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      chamber_path(chamber),
+                      :method => :delete,
+                      :data => {:confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?'))},
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Chamber', new_chamber_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_chamber_path,
+            :class => 'btn btn-primary' %>
